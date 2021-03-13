@@ -40,3 +40,13 @@ router.post("/api/workouts", ({ body }, res) => {
     });
 });
 
+// Get request for the range of the workout //
+router.get("/api/workouts/range", (req,res) => {
+    db.Workout.find({}).then(dbWorkout => {
+        console.log("All Workouts");
+        res.json(dbWorkout);
+    }).catch(err => {
+        res.json(err);
+    });
+});
+
