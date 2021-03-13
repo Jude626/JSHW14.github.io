@@ -11,3 +11,14 @@ app.use(express.static("public"));
 app.use(logger("dev"));
 app.use(express.urlencoded({extended: true}))
 
+// Mongoose connection syntax //
+mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/workout',
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true
+    }
+);
+
